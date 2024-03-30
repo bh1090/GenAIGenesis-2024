@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang = 'en'>
-    <head>
-        <meta charset='UFT-8'/>
-        <link ref="C:\Users\Admin\Downloads\CSSfile.css" rel='stylesheet'/>
-    </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="CSSfilerecording.css">  <title>Recording App</title>  </head>
+<body>
+  <h1>Recording App</h1>
 
-    <h1>
-        APP
-    </h1>
+  <figure>
+    <a href="#" onclick="startRecording()">
+        <img src="Mic icon.jpeg" alt="Recording Logo" width="250px" height="250px">
+    </a>
+    <figcaption>Press to Start Recording</figcaption>
+  </figure>
 
-    <body>
-        <figure>
-            <a href="">
-                <img src='image name' alt='recording logo'>
-            </a>
-            <figcaption> Press to start recording </figcaption> 
-        </figure>
-    </body>
+  <button onclick="stopRecording()">Stop Recording</button>  
+  <script>
+    function startRecording() {
+      // Implement logic to start audio recording (requires JavaScript libraries)
+      console.log("Recording Started");  }
 
-    <body> 
-        <button>
-            <a href="your_file.txt" download>
-                Save the message
-            </a>
-        </button>
-    </body>
+    function stopRecording() {
+      // Implement logic to stop audio recording and potentially save 
+      console.log("Recording Stopped");  }
+  </script>
+</body>
 </html>
