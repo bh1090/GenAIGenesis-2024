@@ -1,5 +1,6 @@
 let mediaRecorder;
 let recordedChunks = [];
+let recordedAudioData; // Variable to store the recorded audio data
 
 async function startRecording() {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -10,15 +11,13 @@ async function startRecording() {
   };
 
   mediaRecorder.onstop = async function () {
-    const blob = new Blob(recordedChunks, { type: "audio/webm" });
-    const url = URL.createObjectURL(blob);
+    recordedAudioData = new Blob(recordedChunks, { type: "audio/webm" });
 
-    // Create an anchor element to trigger the download
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "recording.webm";
-    a.click(); // Simulate a click to trigger the download
-    window.URL.revokeObjectURL(url); // Clean up the URL object
+    // You can now use the recordedAudioData variable to further process or manipulate the recorded audio
+    console.log("Recorded audio data:", recordedAudioData);
+
+    // Clear recordedChunks for the next recording
+    recordedChunks = [];
   };
 
   mediaRecorder.start();
