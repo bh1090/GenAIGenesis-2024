@@ -6,22 +6,19 @@
 <body>
   <h1>Recording App</h1>
 
+  <p> 
+    Record your meetings and lectures with the simple touch. <br>
+    Just start recording by pressing the button
+  </p>
+
   <figure>
-    <a href="#" onclick="startRecording()">
-        <img src="Mic icon.jpeg" alt="Recording Logo" width="250px" height="250px">
-    </a>
-    <figcaption>Press to Start Recording</figcaption>
+    <img src="Mic icon.jpeg" alt="Recording Logo" width="250px" height="250px">
   </figure>
 
-  <button onclick="stopRecording()">Stop Recording</button>  
-  <script>
-    function startRecording() {
-      // Implement logic to start audio recording (requires JavaScript libraries)
-      console.log("Recording Started");  }
+    <div>
+    <button class="start">Start Recording</button>  
+    <button class="stop">Stop Recording</button>  
+    </div>
 
-    function stopRecording() {
-      // Implement logic to stop audio recording and potentially save 
-      console.log("Recording Stopped");  }
-  </script>
 </body>
 </html>
