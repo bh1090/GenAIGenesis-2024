@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="CSSfilerecording.css">  <title>Recording App</title>  </head>
-<body>
-  <h1>LectureMe Recorder</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="CSSfilerecording.css" />
+    <title>Recording App</title>
+  </head>
+  <body>
+    <h1>LectureMe Recorder</h1>
     <p>
       Record your meetings and lectures with the simple touch. <br />
       Just start recording by pressing the button
@@ -20,13 +22,25 @@
     </figure>
 
     <div>
-      <button class="start">Start Recording</button>  
-      <a href="http://127.0.0.1:3000/HTMLtext.html">
-        <input class="stop" type="submit" value="Stop recording">
-  
+      <button class="start">Start Recording</button>
+      <button class="stop">Stop Recording</button>
+      <!-- Changed input to button -->
+    </div>
 
     <!-- Include required JavaScript libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg"></script>
     <script src="script.js"></script>
+
+    <!-- Add event listeners after script.js to ensure they're properly attached -->
+    <script>
+      // Event listeners for start and stop buttons
+      document.querySelector(".start").addEventListener("click", function () {
+        startRecording();
+      });
+
+      document.querySelector(".stop").addEventListener("click", function () {
+        stopRecording();
+      });
+    </script>
   </body>
 </html>

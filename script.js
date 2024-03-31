@@ -1,30 +1,44 @@
 let mediaRecorder;
 let recordedChunks = [];
-let recordedAudioData; // Variable to store the recorded audio data
 
 async function startRecording() {
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-  mediaRecorder = new MediaRecorder(stream);
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
 
-  mediaRecorder.ondataavailable = function (event) {
-    recordedChunks.push(event.data);
-  };
+    mediaRecorder.ondataavailable = function (event) {
+      recordedChunks.push(event.data);
+    };
 
-  mediaRecorder.onstop = async function () {
-    recordedAudioData = new Blob(recordedChunks, { type: "audio/webm" });
+    mediaRecorder.onstop = async function () {
+      const blob = new Blob(recordedChunks, { type: "audio/webm" });
+      const url = URL.createObjectURL(blob);
 
-    // You can now use the recordedAudioData variable to further process or manipulate the recorded audio
-    console.log("Recorded audio data:", recordedAudioData);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "recording.webm";
+      a.click();
+      window.URL.revokeObjectURL(url);
 
-    // Clear recordedChunks for the next recording
-    recordedChunks = [];
-  };
+      recordedChunks = []; // Reset chunks for next recording
+    };
 
-  mediaRecorder.start();
+    mediaRecorder.start();
+
+    // Optionally, provide UI feedback for recording started
+    // For example: document.querySelector(".status").textContent = "Recording...";
+  } catch (err) {
+    console.error("Error accessing microphone:", err);
+    // Optionally, provide user feedback about the error
+  }
 }
 
 function stopRecording() {
-  mediaRecorder.stop();
+  if (mediaRecorder && mediaRecorder.state !== "inactive") {
+    mediaRecorder.stop();
+    // Optionally, provide UI feedback for recording stopped
+    // For example: document.querySelector(".status").textContent = "Recording stopped";
+  }
 }
 
 document.querySelector(".start").addEventListener("click", function () {
