@@ -1,14 +1,23 @@
 body {
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(218, 218, 218);
+    margin: auto;
   }
   
   h1 {
     text-align: center; 
   }
+
+  p {
+    font-style: italic;
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
   
   img {
     display: block;  
     margin: 0 auto;  
+    opacity: 95%;
   }
   
   button {
@@ -18,5 +27,25 @@ body {
 
   figcaption {
     text-align: center;
+  }
+
+  button {
+    border-radius: 50%;
+    aspect-ratio: 3;
+    display: inline-block;
+    width: 150px;
+  }
+
+  div {
+    display:block;
+    text-align: center;
+  }
+
+  .start:active {
+    background-color: #f3526d;
+  }
+
+  .stop:active {
+    background-color: #4bf04b;;
   }
   

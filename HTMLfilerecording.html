@@ -6,25 +6,25 @@
     <title>Recording App</title>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@latest/dist/ffmpeg.min.js"></script>
-
     <h1>Recording App</h1>
 
+    <p>
+      Record your meetings and lectures with the simple touch. <br />
+      Just start recording by pressing the button
+    </p>
+
     <figure>
-      <a href="#" onclick="startRecording()">
-        <img
-          src="Mic icon.jpeg"
-          alt="Recording Logo"
-          width="250px"
-          height="250px"
-        />
-      </a>
-      <figcaption>Press to Start Recording</figcaption>
+      <img
+        src="Mic icon.jpeg"
+        alt="Recording Logo"
+        width="250px"
+        height="250px"
+      />
     </figure>
 
-    <button onclick="stopRecording()">Stop Recording</button>
-
-    <!-- Include required JavaScript libraries -->
-    <script src="script.js"></script>
+    <div>
+      <button class="start">Start Recording</button>
+      <button class="stop">Stop Recording</button>
+    </div>
   </body>
 </html>
